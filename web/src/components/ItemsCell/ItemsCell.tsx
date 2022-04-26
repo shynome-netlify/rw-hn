@@ -3,8 +3,8 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import ItemCell from 'src/components/ItemCell'
 
 export const QUERY = gql`
-  query ItemsQuery {
-    items
+  query ItemsQuery($sort: String!) {
+    items(sort: $sort)
   }
 `
 

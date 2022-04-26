@@ -1,6 +1,7 @@
 import type { FindSortsNavQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, useParams } from '@redwoodjs/router'
+import styles from './SortsNavCell.module.css'
 
 export const QUERY = gql`
   query FindSortsNavQuery {
@@ -20,12 +21,19 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ sorts }: CellSuccessProps<FindSortsNavQuery>) => {
+  const nowSort = useParams()?.sort ?? sorts[0].id
   return (
-    <ul>
+    <ul className="flex space-x-4 text-xl py-4">
       {sorts.map((item) => {
+        const ac = item.id == nowSort ? styles.active : ''
         return (
           <li key={item.id}>
-            <Link to={routes.home({ sort: item.id })}>{item.title}</Link>
+            <Link
+              className={`${styles.item} ${ac}`}
+              to={routes.home({ sort: item.id })}
+            >
+              {item.title}
+            </Link>
           </li>
         )
       })}
