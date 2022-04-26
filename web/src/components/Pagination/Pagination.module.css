@@ -1,0 +1,13 @@
+.root {
+  @apply my-4 p-2 justify-center;
+}
+
+.root a {
+  @apply text-center rounded text-white bg-black opacity-60;
+  @apply h-8 w-8 leading-8;
+  transition: all 0.3s;
+}
+.root a.active,
+.root a:hover {
+  @apply opacity-100;
+}
