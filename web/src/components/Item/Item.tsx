@@ -44,7 +44,7 @@ export const StoryItem: React.FC<ItemProps> = ({ item }) => {
 export const CommentWrap: React.FC = (props) => {
   return (
     <div
-      className="p-4 my-3 m border-l-2 border-gray-300"
+      className="pl-3 pr-2 pt-3 pb-2 mt-3 border-l-2 border-gray-300"
       style={{ backgroundColor: 'rgba(200,200,200,0.2)' }}
     >
       {props.children}
