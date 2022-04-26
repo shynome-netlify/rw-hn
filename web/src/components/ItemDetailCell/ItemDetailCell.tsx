@@ -15,14 +15,27 @@ export const Failure = ({ error }: CellFailureProps) => (
 
 export const Success = ({ item: detail }: CellSuccessProps<FindItemQuery>) => {
   return (
-    <>
-      <article>
-        <h1>{detail.title}</h1>
-        <div>{detail.text}</div>
+    <div className="">
+      <article className="pb-4">
+        <h1 className="px-2 text-2xl mb-4">{detail.title}</h1>
+        <div
+          className="px-2"
+          dangerouslySetInnerHTML={{ __html: detail.text }}
+        ></div>
       </article>
-      {detail.kids.slice(0, 5).map((id) => {
-        return <ItemCell key={id} id={id} />
-      })}
-    </>
+      <hr />
+      <div className="py-4">
+        <h3 className="text-xl">Comments:</h3>
+        <ul className="py-2">
+          {detail.kids.slice(0, 5).map((id) => {
+            return (
+              <li key={id}>
+                <ItemCell key={id} id={id} />
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </div>
   )
 }

@@ -33,7 +33,10 @@ export const StoryItem: React.FC<ItemProps> = ({ item }) => {
 
 export const CommentItem: React.FC<ItemProps> = ({ item }) => {
   return (
-    <div>
+    <div
+      className="p-4 my-3 m border-l-2 border-gray-300"
+      style={{ backgroundColor: 'rgba(200,200,200,0.3)' }}
+    >
       <div dangerouslySetInnerHTML={{ __html: item.text }}></div>
       {(item?.kids?.length ?? 0) > 0 && (
         <ul>
