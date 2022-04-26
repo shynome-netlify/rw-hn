@@ -1,6 +1,6 @@
 import type { FindItemQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
-import Item, { CommentWrap } from 'src/components/Item'
+import Item from 'src/components/Item'
 
 export const QUERY = gql`
   query FindItemQuery($id: Int!) {
@@ -24,9 +24,9 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = ({ isComment = false }) => {
-  if (isComment) {
-    return <CommentWrap>Loading...</CommentWrap>
+export const Loading = ({ Wrap }) => {
+  if (Wrap) {
+    return <Wrap>Loading...</Wrap>
   }
   return <div>Loading...</div>
 }

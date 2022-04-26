@@ -2,6 +2,7 @@ import type { FindItemQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import ItemCell from '../ItemCell'
 import { QUERY as ItemQuery } from 'src/components/ItemCell/ItemCell'
+import { CommentWrap } from '../Item'
 
 export const QUERY = ItemQuery
 
@@ -31,7 +32,7 @@ export const Success = ({ item: detail }: CellSuccessProps<FindItemQuery>) => {
             {detail.kids.slice(0, 5).map((id) => {
               return (
                 <li key={id}>
-                  <ItemCell key={id} id={id} isComment />
+                  <ItemCell key={id} id={id} Wrap={CommentWrap} />
                 </li>
               )
             })}

@@ -1,6 +1,7 @@
 import type { ItemsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import ItemCell from 'src/components/ItemCell'
+import { StoryWrap } from '../Item'
 
 export const QUERY = gql`
   query ItemsQuery($sort: String!) {
@@ -22,7 +23,7 @@ export const Success = ({ items }: CellSuccessProps<ItemsQuery>) => {
       {items.slice(0, 30).map((item) => {
         return (
           <li key={item} className="my-3">
-            <ItemCell id={item} />
+            <ItemCell id={item} Wrap={StoryWrap} />
           </li>
         )
       })}
