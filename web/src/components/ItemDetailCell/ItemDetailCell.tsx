@@ -26,15 +26,17 @@ export const Success = ({ item: detail }: CellSuccessProps<FindItemQuery>) => {
       <hr />
       <div className="py-4">
         <h3 className="text-xl">Comments:</h3>
-        <ul className="py-2">
-          {detail.kids.slice(0, 5).map((id) => {
-            return (
-              <li key={id}>
-                <ItemCell key={id} id={id} />
-              </li>
-            )
-          })}
-        </ul>
+        {(detail?.kids?.length ?? false) && (
+          <ul className="py-2">
+            {detail.kids.slice(0, 5).map((id) => {
+              return (
+                <li key={id}>
+                  <ItemCell key={id} id={id} isComment />
+                </li>
+              )
+            })}
+          </ul>
+        )}
       </div>
     </div>
   )

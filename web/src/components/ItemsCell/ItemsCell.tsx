@@ -21,7 +21,7 @@ export const Success = ({ items }: CellSuccessProps<ItemsQuery>) => {
     <ul>
       {items.slice(0, 30).map((item) => {
         return (
-          <li key={item}>
+          <li key={item} className="my-3">
             <ItemCell id={item} />
           </li>
         )
