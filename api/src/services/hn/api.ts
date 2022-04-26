@@ -1,6 +1,9 @@
 import { Sort } from 'types/graphql'
 import fetch from 'node-fetch'
 
+/**
+ * @link https://github.com/HackerNews/API
+ */
 const HN_Base = 'https://hacker-news.firebaseio.com/v0'
 
 export const Sorts: Sort[] = [
