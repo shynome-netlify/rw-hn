@@ -16,10 +16,10 @@ export const schema = gql`
     dead: Boolean
     parent: String
     poll: String
-    kids: [String]
+    kids: [Int]
     url: String
     score: String
-    title: String!
+    title: String
     parts: [String]
     descendants: Int
   }
@@ -35,8 +35,8 @@ export const schema = gql`
     id: String!
   }
   type Query {
-    sorts: [Sort!]!
-    items(sort: String = "topstories"): [Item]!
-    item(id: Int!): Item!
+    sorts: [Sort!]! @skipAuth
+    items(sort: String = "topstories"): [Int]! @skipAuth
+    item(id: Int!): Item! @skipAuth
   }
 `
