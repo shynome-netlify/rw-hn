@@ -23,6 +23,18 @@ export const Success = ({ item: detail }: CellSuccessProps<FindItemQuery>) => {
           className="px-2"
           dangerouslySetInnerHTML={{ __html: detail.text }}
         ></div>
+        {detail.url && (
+          <div className="">
+            <a
+              href={detail.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block text-lg px-3 mx-2 rounded leading-8 bg-black text-white"
+            >
+              link
+            </a>
+          </div>
+        )}
       </article>
       <hr />
       <div className="py-4">

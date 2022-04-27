@@ -26,7 +26,7 @@ export const StoryItem: React.FC<ItemProps> = ({ item }) => {
       <article>
         <header>
           <Link to={routes.item({ id: item.id, sort: sort })}>
-            <h4>
+            <h4 className="inline-block">
               {item.title}
               <span
                 className="p-1 bg-black text-white rounded-full inline-block w-6 h-6 leading-4 text-center text-sm mx-2"
@@ -36,14 +36,16 @@ export const StoryItem: React.FC<ItemProps> = ({ item }) => {
               </span>
             </h4>
           </Link>
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden"
-          >
-            link
-          </a>
+          {item.url && (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block p-1 px-2 mx-2 rounded leading-6 bg-black text-white"
+            >
+              link
+            </a>
+          )}
         </header>
       </article>
     </StoryWrap>
