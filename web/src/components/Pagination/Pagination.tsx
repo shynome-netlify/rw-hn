@@ -30,11 +30,17 @@ function getPages(now: number, end_page: number, cap: number): number[] {
   while (arr.length < cap) {
     a = a - 1
     b = b + 1
+    const broken = { a: true, b: true }
     if (a >= 0) {
+      broken.a = false
       arr.unshift(a)
     }
     if (b <= lastIndex) {
+      broken.b = false
       arr.push(b)
+    }
+    if (broken.a && broken.b) {
+      break
     }
   }
   const result = arr.map((i) => maybeList[i])
@@ -49,7 +55,7 @@ const Pagination: React.FC<PaginationProps> = ({
   per_page = 15,
   display_pages = 5,
 }) => {
-  const end_page = Math.floor(count / per_page)
+  const end_page = Math.floor((count - 1) / per_page)
   const pages = getPages(now, end_page, display_pages)
 
   return (
